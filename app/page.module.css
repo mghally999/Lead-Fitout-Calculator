@@ -1,0 +1,293 @@
+/* app/page.module.css */
+
+.calculatorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #f9b348; /* Primary accent color, inspired by Lead Fitout */
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  background-color: #2a2a2a;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px #0000004d;
+  width: 100%;
+  max-width: 600px;
+}
+
+.leftItem, .rightItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 1rem;
+  color: #f5f5f5;
+  margin-bottom: 8px;
+}
+
+.input.noArrows::-webkit-outer-spin-button,
+.input.noArrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.radioLabel {
+  font-size: 1rem;
+  color: #f5f5f5;
+  margin: 8px 0;
+}
+
+.radio {
+  margin-right: 8px;
+}
+
+.infoList {
+  /* list-style: none; */
+  padding: 0;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.resultBox {
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-between;
+  /* padding: 15px; */
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.calculateButton {
+  grid-column: span 2;
+  padding: 12px;
+  background-color: #a3573b; /* Warm, accent color for button */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.calculateButton:hover {
+  background-color: #8c4c35; /* Darker shade on hover */
+}
+.rangeSlider {
+  width: 100%;
+  margin-top: 10px;
+  appearance: none;
+  height: 10px;
+  background: #1e1e1e;
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.rangeSlider:hover {
+  opacity: 1;
+}
+
+.rangeSlider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #a3573b; /* Slider thumb color */
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.rangeSlider::-moz-range-thumb {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #a3573b;
+  height: 20px;
+  width: 20;
+}
+
+.sliderContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 100px;
+  text-align: center;
+  font-size: 1rem;
+  background: #2a2a2a; /* Match background color */
+  border: 1px solid #555;
+  border-radius: 5px;
+  color: #f5f5f5;
+  padding: 4px;
+}
+
+.rangeSlider {
+  width: 100%;
+  margin-top: 15px;
+  appearance: none;
+  height: 10px;
+  background: #1e1e1e;
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.rangeSlider:hover {
+  opacity: 1;
+}
+
+.rangeSlider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #a3573b;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.rangeSlider::-moz-range-thumb {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #a3573b;
+  height: 20px;
+  width: 20px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.gridContainer .rightItem {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add styles for sliders below "Term of Work" and "Discount" */
+.resultSlider {
+  width: 100%;
+  margin-top: 10px;
+  appearance: none;
+  height: 8px;
+  background: #403535; /* Background color matching the theme */
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.8;
+}
+
+.resultSlider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #a3573b; /* Slider thumb color */
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.resultItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.resultSlider {
+  width: 90%;
+  margin-top: 5px;
+  appearance: none;
+  height: 8px;
+  background: #403535; /* Background color matching the theme */
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.8;
+}
+
+.resultSlider:hover {
+  opacity: 1;
+}
+
+.resultSlider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #a3573b; /* Slider thumb color */
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.resultSlider::-moz-range-thumb {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #a3573b;
+  height: 16px;
+  width: 16px;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.modalContent h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.modalContent input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.closeButton {
+  background: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}

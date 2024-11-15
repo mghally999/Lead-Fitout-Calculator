@@ -1,4 +1,3 @@
-// app/page.js
 import Calculator from "./components/Calculator";
 import "./globals.css";
 

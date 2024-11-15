@@ -9,7 +9,7 @@ export default function Calculator() {
   const [termOfWork, setTermOfWork] = useState(0);
   const [discount, setDiscount] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
-  const [formData, setFormData] = useState({ name: "", phoneNumber: "" }); // Form data
+  const [formData, setFormData] = useState({ name: ""}); // Form data
 
   useEffect(() => {
     if (area && area > 0) { // Ensure calculations are only for positive area values
@@ -86,8 +86,7 @@ export default function Calculator() {
       `Type of Service: ${serviceType}\n` +
       `Term of Work: ${termOfWork} days\n` +
       `Discount: AED ${discount}\n` +
-      `Name: ${formData.name}\n` +
-      `Phone: ${formData.phoneNumber}`;
+      `Name: ${formData.name}`;
 
     const whatsappLink = `https://wa.me/971547788310?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappLink, "_blank");
@@ -208,14 +207,6 @@ export default function Calculator() {
                   name="name"
                   placeholder="Your name"
                   value={formData.name}
-                  onChange={handleFormDataChange}
-                  required
-                />
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  placeholder="Phone number"
-                  value={formData.phoneNumber}
                   onChange={handleFormDataChange}
                   required
                 />

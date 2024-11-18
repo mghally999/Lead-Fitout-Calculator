@@ -9,10 +9,11 @@ export default function Calculator() {
   const [termOfWork, setTermOfWork] = useState(0);
   const [discount, setDiscount] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
-  const [formData, setFormData] = useState({ name: ""}); // Form data
+  const [formData, setFormData] = useState({ name: "" }); // Form data
 
   useEffect(() => {
-    if (area && area > 0) { // Ensure calculations are only for positive area values
+    if (area && area > 0) {
+      // Ensure calculations are only for positive area values
       calculateWorkTerm(area, serviceType);
       calculateDiscount(area, serviceType);
     } else {
@@ -35,7 +36,7 @@ export default function Calculator() {
 
   const calculateDiscount = (area, service) => {
     let baseDiscount, additionalDiscountPerSqm, threshold;
-  
+
     if (service === "Design") {
       baseDiscount = 1000;
       additionalDiscountPerSqm = 24;
@@ -45,14 +46,13 @@ export default function Calculator() {
       additionalDiscountPerSqm = 89;
       threshold = 40; // Discount starts at 40 sqm for Fitout
     }
-  
+
     const extraArea = area > threshold ? area - threshold : 0;
     const additionalDiscount = extraArea * additionalDiscountPerSqm;
-    
+
     // Set discount only if area meets the threshold
     setDiscount(area >= threshold ? baseDiscount + additionalDiscount : 0);
   };
-  
 
   const handleAreaInputChange = (e) => {
     const value = e.target.value === "" ? "" : parseInt(e.target.value, 10);
@@ -88,7 +88,9 @@ export default function Calculator() {
       `Discount: AED ${discount}\n` +
       `Name: ${formData.name}`;
 
-    const whatsappLink = `https://wa.me/971547788310?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappLink = `https://wa.me/971588646785?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
     window.open(whatsappLink, "_blank");
 
     handleModalClose();
@@ -213,7 +215,11 @@ export default function Calculator() {
                 <button type="submit" className={styles.calculateButton}>
                   Send to WhatsApp
                 </button>
-                <button type="button" onClick={handleModalClose} className={styles.closeButton}>
+                <button
+                  type="button"
+                  onClick={handleModalClose}
+                  className={styles.closeButton}
+                >
                   Cancel
                 </button>
               </form>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "../page.module.css";
 
 export default function Calculator() {
@@ -10,6 +10,8 @@ export default function Calculator() {
   const [discount, setDiscount] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
   const [formData, setFormData] = useState({ name: "" }); // Form data
+
+  const modalRef = useRef(null);
 
   useEffect(() => {
     if (area && area > 0) {
@@ -96,6 +98,23 @@ export default function Calculator() {
     handleModalClose();
   };
 
+  const handleClickOutside = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      setIsModalOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isModalOpen]);
+
   return (
     <div className={styles.calculatorContainer}>
       <div className={styles.gridContainer}>
@@ -163,9 +182,7 @@ export default function Calculator() {
         </div>
 
         {/* Static Info Box */}
-        <div className={styles.rightItem}>
-          {/* <label className={styles.label}>Full renovation includes:</label> */}
-        </div>
+        <div className={styles.rightItem}></div>
 
         {/* Results with Disabled Sliders */}
         <div className={styles.resultBox}>
@@ -203,27 +220,29 @@ export default function Calculator() {
         {/* Modal */}
         {isModalOpen && (
           <div className={styles.modalOverlay}>
-            <div className={styles.modalContent}>
-              <h2>Send a request for calculation</h2>
+            <div className={styles.modalContent} ref={modalRef}>
+              <h2>Request a Quote</h2>
               <form onSubmit={handleSubmit}>
                 <input
                   type="text"
                   name="name"
-                  placeholder="Your name"
+                  placeholder="Your Name"
                   value={formData.name}
                   onChange={handleFormDataChange}
                   required
                 />
-                <button type="submit" className={styles.calculateButton}>
-                  Send to WhatsApp
-                </button>
-                <button
-                  type="button"
-                  onClick={handleModalClose}
-                  className={styles.closeButton}
-                >
-                  Cancel
-                </button>
+                <div className={styles.buttonGroup}>
+                  <button type="submit" className={styles.calculateButton}>
+                    Send to WhatsApp
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleModalClose}
+                    className={styles.closeButton}
+                  >
+                    Cancel
+                  </button>
+                </div>
               </form>
             </div>
           </div>

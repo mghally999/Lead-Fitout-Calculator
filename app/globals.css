@@ -41,6 +41,11 @@ body {
   margin: 0;
 }
 
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0.1rem 0.1rem rgba(230, 125, 34, 0.5);
+}
+
 a {
   color: inherit;
   text-decoration: none;

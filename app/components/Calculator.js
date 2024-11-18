@@ -170,7 +170,9 @@ export default function Calculator() {
         {/* Results with Disabled Sliders */}
         <div className={styles.resultBox}>
           <div className={styles.resultItem}>
-            <p>Term of Work: {termOfWork} days</p>
+            <p className={styles.resultParagraph}>
+              Term of Work: {termOfWork} days
+            </p>
             <input
               type="range"
               min="0"
@@ -181,7 +183,7 @@ export default function Calculator() {
             />
           </div>
           <div className={styles.resultItem}>
-            <p>Discount: AED {discount}</p>
+            <p className={styles.resultParagraph}>Discount: AED {discount}</p>
             <input
               type="range"
               min="0"
